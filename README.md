@@ -1,2 +1,1 @@
-# toolchain.rk
-LG Hom Bot Toolchain
+# LG Hom Bot Toolchain
