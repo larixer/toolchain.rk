@@ -7,7 +7,7 @@ if [ ! -d src/kernel-2.6.33 ]; then
 	cd downloads
 	echo "Downloading LG Hom Bot Linux Kernel Project"
 	wget -qc --show-progress https://github.com/vlasenko/kernel.rk/archive/master.zip
-	unzip -u master.zip
+	unzip -qu master.zip
 	cd kernel.rk-master
 	./make_kernel.sh
 	mv kernel-2.6.33 ../../src
