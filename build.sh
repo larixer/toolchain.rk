@@ -45,7 +45,7 @@ if [ ! -f $DEST/arm-linux-gnueabi/bin/ld ]; then
 fi
 
 if [ ! -d $DEST/include/linux ]; then
-	echo "Copyying LG Hom Bot Kernel Headers"
+	echo "Copying LG Hom Bot Kernel Headers"
 	mkdir -p $DEST/include
 	cp -rf src/kernel-2.6.33/include/linux $DEST/include/
 	cp -rf src/kernel-2.6.33/arch/arm/include/asm $DEST/include/
