@@ -126,4 +126,37 @@ if [ ! -f $DEST/lib/libc.a ]; then
 	cd ../..
 fi
 
+if [ ! -f $DEST/arm-linux-gnueabi/bin/g++ ]; then
+	if [ ! -f build/gcc-pass2/Makefile ]; then
+		echo "Configuring GCC pass 2"
+		mkdir -p build/gcc-pass2
+		cd build/gcc-pass2
+		../../src/gcc-4.4.3/configure --target=arm-linux-gnueabi \
+			--prefix=$DEST \
+			--with-headers=$DEST/include \
+			--with-libs=$DEST/lib \
+			--enable-languages=c,c++ \
+			--enable-__cxa_atexit --enable-target-optspace \
+			--enable-shared \
+			--enable-c99 --enable-long-long --disable-nls --enable-threads=posix \
+			--disable-multilib --disable-decimal-float --with-arch=armv6 \
+			--with-float=softfp --with-fpu=vfp --enable-symvers=gnu --disable-libstdcxx-pch --disable-bootstrap --disable-libgomp > configure.log 2>&1
+	else
+		cd build/gcc-pass2
+	fi
+
+	if [ ! -f install.log ]; then
+		echo "Building GCC pass 2"
+		make -j16 CFLAGS="-fgnu89-inline" MAKEINFO=true > build.log 2>&1
+	fi
+
+	echo "Installing GCC pass 2"
+	make -j16 install MAKEINFO=true > install.log 2>&1
+
+	echo "Done with GCC pass 2"
+	cd ../..
+fi
+
+echo "LG Hom Bot Toolchain has been built successfully!"
+
 trap : 0
