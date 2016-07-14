@@ -31,6 +31,9 @@ if [ ! -d src/glibc-2.5 ]; then
 	tar xf glibc-ports-2.5.tar.bz2 -C ../src
 	mv ../src/glibc-ports-2.5 ../src/glibc-2.5/ports
 	cd ..
+	for p in patches/glibc-2.5/*; do
+		patch -g0 --fuzz=1 -p0 -f -d src < $p
+	done
 fi
 
 if [ ! -d src/gcc-4.4.3 ]; then
@@ -40,4 +43,3 @@ if [ ! -d src/gcc-4.4.3 ]; then
 	tar xf gcc-4.4.3.tar.bz2 -C ../src
 	cd ..
 fi
-

@@ -1,0 +1,9 @@
+diff -Nur glibc-2.5/version.h glibc-2.5/version.h
+--- glibc-2.5/version.h	2006-09-29 21:35:25.000000000 +0300
++++ glibc-2.5/version.h	2016-06-16 22:08:11.000000000 +0300
+@@ -1,4 +1,4 @@
+ /* This file just defines the current version number of libc.  */
+ 
+ #define RELEASE "stable"
+-#define VERSION "2.5"
++#define VERSION "2.4"
