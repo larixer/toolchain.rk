@@ -7,11 +7,14 @@ if [ ! -d src/kernel-2.6.33 ]; then
 	cd downloads
 	echo "Downloading LG Hom Bot Linux Kernel Project"
 	wget -qc --show-progress https://github.com/vlasenko/kernel.rk/archive/master.zip
-	unzip -f master.zip
+	unzip -u master.zip
 	cd kernel.rk-master
 	./make_kernel.sh
 	mv kernel-2.6.33 ../../src
 	cd ../..
+	for p in patches/kernel-2.6.33/*; do
+		patch -g0 --fuzz=1 -p0 -f -d src < $p
+	done
 fi
 
 if [ ! -d src/binutils-2.20.1 ]; then

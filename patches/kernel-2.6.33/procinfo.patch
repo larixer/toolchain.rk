@@ -1,0 +1,12 @@
+diff -Nur kernel-2.6.33/arch/arm/include/asm/procinfo.h kernel-2.6.33.mod/arch/arm/include/asm/procinfo.h
+--- kernel-2.6.33/arch/arm/include/asm/procinfo.h	2010-08-02 20:27:18.000000000 +0300
++++ kernel-2.6.33/arch/arm/include/asm/procinfo.h	2016-07-14 21:29:33.448940878 +0300
+@@ -43,7 +43,7 @@
+ };
+ 
+ #else	/* __KERNEL__ */
+-#include <asm/elf.h>
++#include <asm/hwcap.h>
+ #warning "Please include asm/elf.h instead"
+ #endif	/* __KERNEL__ */
+ #endif

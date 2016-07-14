@@ -1,0 +1,18 @@
+diff -Nur kernel-2.6.33/include/linux/compiler.h kernel-2.6.33.mod/include/linux/compiler.h
+--- kernel-2.6.33/include/linux/compiler.h	2010-08-02 20:27:18.000000000 +0300
++++ kernel-2.6.33/include/linux/compiler.h	2016-07-14 21:29:08.916473243 +0300
+@@ -36,12 +36,12 @@
+ # define __percpu
+ #endif
+ 
+-#ifdef __KERNEL__
+-
+ #ifdef __GNUC__
+ #include <linux/compiler-gcc.h>
+ #endif
+ 
++#ifdef __KERNEL__
++
+ #define notrace __attribute__((no_instrument_function))
+ 
+ /* Intel compiler defines __GNUC__. So we will overwrite implementations
