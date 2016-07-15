@@ -27,4 +27,5 @@ cd toolchain.rk
 ./all.sh
 ```
 
-This should produce working cross-compiler into `/opt/ark-rk`
+This should produce working cross-compiler into `/opt/ark-rk`. Script will download `kernel`, `binutils`, `glibc`, `gcc`,
+apply patches. After that it will build `Binutils`, `GCC pass 1`, `Glibc` and finally `GCC pass 2 with C and C++ compilers`.
